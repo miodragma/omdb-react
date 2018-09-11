@@ -1,0 +1,33 @@
+.LeftButton{
+    color: #ffffff;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    z-index: 1;
+    cursor: pointer;
+    transition: color 0.3s ease-out 0s;
+}
+
+.RightButton {
+    color: #ffffff;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 1;
+    cursor: pointer;
+    transition: color 0.3s ease-out 0s;
+}
+
+.RightButton:hover, .LeftButton:hover {
+    color: #cccccc;
+}
+
+.InputForm {
+    margin-right: 160px;
+    display: flex;
+    flex-direction: row;
+}
+
+.FormGroup {
+    align-self: flex-end;
+}

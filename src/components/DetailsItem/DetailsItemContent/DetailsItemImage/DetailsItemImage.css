@@ -1,0 +1,6 @@
+.DetailsItemImage {
+    background-size: cover;
+    max-height: 420px;
+    border-bottom-left-radius: 23px;
+    margin-right: 10px;
+}

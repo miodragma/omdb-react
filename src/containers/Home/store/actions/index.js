@@ -1,0 +1,1 @@
+export { getMovies, addTitle, addPage } from './movies';

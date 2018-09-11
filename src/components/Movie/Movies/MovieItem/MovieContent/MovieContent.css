@@ -1,0 +1,18 @@
+.MovieContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.MovieContent h5 {
+    margin: 7px 3px 0 3px;
+    text-align: center;
+}
+
+.ContentInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 7px;
+}

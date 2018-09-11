@@ -1,0 +1,9 @@
+.StatsTypeItem {
+    width: 700px;
+    height: 500px;
+    /*height: auto;*/
+    background-size: 80px 80px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    /*background: url("https://vignette.wikia.nocookie.net/reddeadredemption/images/0/0f/Metacritic_Logo.png/revision/latest?cb=20180321185652") no-repeat top right;*/
+}

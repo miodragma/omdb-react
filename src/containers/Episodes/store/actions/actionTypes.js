@@ -1,0 +1,5 @@
+export const GET_EPISODES = 'GET_EPISODES';
+export const RESET_EPISODES = 'RESET_EPISODES';
+export const GET_EPISODE = 'GET_EPISODE';
+export const RESET_EPISODE = 'RESET_EPISODE';
+export const ADD_EPISODE_TO_STATS = 'ADD_EPISODE_TO_STATS';

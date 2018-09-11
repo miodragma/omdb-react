@@ -1,0 +1,33 @@
+.DetailsItemHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: black;
+    height: 80px;
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+    text-align: center;
+}
+
+.DetailsItemHeader h3 {
+    margin: 0;
+    padding: 0;
+    color: #ececec;
+}
+
+.DetailsItemHeader small {
+    color: #cccccc;
+}
+
+.AddToState {
+    width: 0;
+    margin: 0 auto;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease-out 0s;
+}
+
+.AddToState:hover {
+    color: #cccccc;
+    cursor: pointer;
+}

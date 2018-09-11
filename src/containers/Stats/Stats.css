@@ -1,0 +1,12 @@
+.StatsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.StatsItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

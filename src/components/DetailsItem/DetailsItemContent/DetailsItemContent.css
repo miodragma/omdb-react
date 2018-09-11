@@ -1,0 +1,5 @@
+.DetailsItemContent {
+    display: flex;
+    flex-direction: row;
+    margin: auto 0;
+}

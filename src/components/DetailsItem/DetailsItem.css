@@ -1,0 +1,9 @@
+.DetailsItem {
+    color: #ececec;
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    margin-bottom: 20px;
+    border-radius: 23px;
+    box-shadow: 0 10px 10px #ececec;
+}

@@ -1,0 +1,67 @@
+.DetailsItemInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.DetailsItemInfo h3 {
+    padding: 0;
+    margin: 0 5px;
+}
+
+.DetailsItemInfo a {
+    color: #ececec;
+    text-decoration: none;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.DetailsItemInfo a:hover,
+.DetailsItemInfo a:active,
+.DetailsItemInfo a.active {
+    color: #40A4C8;
+}
+
+.Metascore {
+    color: black;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    background-color: greenyellow;
+}
+
+.Metascore b {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 26px;
+}
+
+.DetailsItemInfo p {
+    margin: 0;
+    padding: 0;
+}
+
+.Votes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ImdbVotes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Awards {
+    height: 30px;
+    width: 90%;
+    background-color: burlywood;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.Awards b {
+    line-height: 30px;
+}

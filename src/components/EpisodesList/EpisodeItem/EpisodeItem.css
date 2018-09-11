@@ -1,0 +1,17 @@
+.EpisodesItem {
+    color: #ececec;
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    height: 75px;
+    margin-bottom: 10px;
+    border-radius: 23px;
+    box-shadow: 0 10px 10px #ececec;
+    cursor: pointer;
+    transition: all 0.3s ease-out 0s;
+}
+
+.EpisodesItem:hover {
+    color: #000;
+    background-color: #ececec;
+}

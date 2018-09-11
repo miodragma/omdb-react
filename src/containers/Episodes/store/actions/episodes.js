@@ -10,7 +10,7 @@ export const fetchEpisodes = data => {
 
 export const getEpisodes = (imdbId, seasonId) => {
     return dispatch => {
-        axios.get(`http://www.omdbapi.com/?apikey=8ed6e6d5&i=${imdbId}&Season=${seasonId}`)
+        axios.get(`https://www.omdbapi.com/?apikey=8ed6e6d5&i=${imdbId}&Season=${seasonId}`)
             .then(response => {
                 if (response.data) {
                     const data = {

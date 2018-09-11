@@ -15,7 +15,7 @@ class App extends Component {
                   <Route path='/' exact component={Home}/>
                   <Route path='/details/:id' component={Details} />
                   <Route path='/stats' component={Stats}/>
-                  <Route component={NoMatch}/>
+                  {/*<Route component={NoMatch}/>*/}
               </Switch>
           </Layout>
       </div>

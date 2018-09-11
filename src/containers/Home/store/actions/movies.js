@@ -10,7 +10,7 @@ export const fetchMovies = (data) => {
 
 export const getMovies = (title, page, type) => {
     return dispatch => {
-        axios.get(`http://www.omdbapi.com/?apikey=8ed6e6d5&s=${title}*${type === 'all' ? '' : `&type=${type}`}&page=${page}`)
+        axios.get(`https://www.omdbapi.com/?apikey=8ed6e6d5&s=${title}*${type === 'all' ? '' : `&type=${type}`}&page=${page}`)
             .then(response => {
                 if (response.data['Search']) {
                     const data = {data: response.data, title: title, page: page, type: type};

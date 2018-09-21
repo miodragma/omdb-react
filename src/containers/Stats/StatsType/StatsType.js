@@ -37,7 +37,7 @@ const statsType = (props) => {
             }
         };
 
-        const boxOffice = props['all'].some(item => 'BoxOffice' in item && item['BoxOffice'] !== 'N/A') ?
+        const boxOffice = props['all'].some(item => 'BoxOffice' in item) ?
             <div className={classes.StatsTypeItem} style={style['boxOffice']}><Chart
                 title={'Box Office'}
                 type={'BoxOffice'}
@@ -48,7 +48,7 @@ const statsType = (props) => {
                 chartType='bar'
                 toTooltip=' $'/></div> : null;
 
-        const rottenTom = props['all'].some(item => 'Ratings' in item) ?
+        const rottenTom = props['all'].some(item => 'Ratings' in item && item['Ratings'].length > 1) ?
             <div className={classes.StatsTypeItem} style={style['boxOffice']}><Chart
                 title={'Rotten Tomatoes'}
                 type={'Ratings'}

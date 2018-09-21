@@ -60,7 +60,6 @@ class Home extends Component {
     };
 
     onChangeTypeHandler = (event) => {
-        console.log('checked')
         const checkedName = event.target.name.toLowerCase();
         if (this.state.checked !== checkedName) {
             this.props.onGetData(this.props.movies.title, this.props.movies.page, checkedName);

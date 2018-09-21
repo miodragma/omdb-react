@@ -1,6 +1,7 @@
 import React from 'react';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import { Line, Bar, HorizontalBar } from 'react-chartjs-2';
+import 'chartjs-plugin-style';
 
 import thousandsSeparator from '../../utils/functions/thousandsSeparator';
 
@@ -12,10 +13,9 @@ const chart = (props) => {
         const b = Math.floor(Math.random() * 256);
         return `rgba(${r},${g},${b}, `;
     };
-
+    const color = getRandomColor();
     const dataset = props.movies.map(item => {
-        const color = getRandomColor();
-        console.log(item[`${props.type}`][1]['Value']);
+        console.log(item, props.type, item[`${props.type}`]);
         return {
             label: item.Title,
             backgroundColor: `${color} 1)`,
@@ -26,9 +26,26 @@ const chart = (props) => {
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: `${color} 0.8)`,
             borderWidth: 1,
-            data: [item[`${props.type}`] === 'N/A' ?
-                0 : props.type === 'BoxOffice' ? +item[`${props.type}`].match(/\d+/g).join('')
-                : props.type === 'Ratings' ? +item[`${props.type}`][1]['Value'].match(/\d+/g).join('') : parseFloat(item[`${props.type}`].replace(/,/g, ''))]
+            bevelWidth: 3,
+            bevelHighlightColor: 'rgba(255, 255, 255, 0.75)',
+            bevelShadowColor: 'rgba(0, 0, 0, 0.5)',
+            shadowOffsetX: 3,
+            shadowOffsetY: 3,
+            shadowBlur: 10,
+            shadowColor: 'rgba(255, 255, 255, 0.5)',
+            data: [item[`${props.type}`] === 'N/A' ? 0 :
+                props.type === 'BoxOffice' && item[`${props.type}`] !== undefined ?
+                    +item[`${props.type}`].match(/\d+/g).join('') :
+                    props.type === 'Ratings' && item[`${props.type}`] !== undefined && item[`${props.type}`].length > 1 ?
+                        +item[`${props.type}`][1]['Value'].match(/\d+/g).join('') :
+                        props.type === 'Metascore' && item[`${props.type}`] !== undefined ?
+                            parseFloat(item[`${props.type}`].replace(/,/g, '')) :
+                            props.type === 'imdbRating' && item[`${props.type}`] !==undefined ?
+                                parseFloat(item[`${props.type}`].replace(/,/g, '')) :
+                                props.type === 'imdbVotes' && item[`${props.type}`] !== undefined ?
+                                    parseFloat(item[`${props.type}`].replace(/,/g, '')) :
+                                    props.type === 'Runtime' && item[`${props.type}`] !== undefined ?
+                                        parseFloat(item[`${props.type}`].replace(/,/g, '')) : 0]
         }
     });
 
@@ -81,16 +98,17 @@ const chart = (props) => {
                                         return (n / ranges[i].divider).toString() + ranges[i].suffix;
                                     }
                                 }
-                                return n + `${props.type === 'Ratings' ? '%' : ''}` +  `${props.from > 0 || props.from === 'min' ? ' / ' + props.from : ''}`;
+                                return n + `${props.type === 'Ratings' ? '%' : ''}` + `${props.from > 0 || props.from === 'min' ? ' / ' + props.from : ''}`;
                             }
 
                             return formatNumber(value);
                         }
                     },
-                    gridLines: { color: "#ececec" }
+                    gridLines: {color: "#ececec"}
                 }],
                 xAxes: [{
                     barPercentage: 0.5,
+                    categoryPercentage: 0.5,
                     // scaleLabel: {
                     //     display: true,
                     //     // labelString: props.title,
@@ -115,13 +133,13 @@ const chart = (props) => {
                                         return (n / ranges[i].divider).toString() + ranges[i].suffix;
                                     }
                                 }
-                                return n +  `${props.from > 0 || props.from === 'min' ? ' / ' + props.from : ''}`;
+                                return n + `${props.from > 0 || props.from === 'min' ? ' / ' + props.from : ''}`;
                             }
 
                             return formatNumber(value);
                         }
                     },
-                    gridLines: { color: "#ececec" }
+                    gridLines: {color: "#ececec"}
                 }],
             },
             legend: {
@@ -140,6 +158,13 @@ const chart = (props) => {
                 bodySpacing: 6,
                 mode: 'index',
                 intersect: false,
+                bevelWidth: 3,
+                bevelHighlightColor: 'rgba(255, 255, 255, 0.75)',
+                bevelShadowColor: 'rgba(0, 0, 0, 0.5)',
+                shadowOffsetX: 3,
+                shadowOffsetY: 3,
+                shadowBlur: 10,
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
                 callbacks: {
                     label: function (tooltipItem, data) {
                         var label = data.datasets[tooltipItem.datasetIndex].label || '';
@@ -161,7 +186,7 @@ const chart = (props) => {
         if (props.chartType === 'bar') {
             chart = <Bar data={data} options={options()}/>
         }
-        if (props.chartType === 'line'){
+        if (props.chartType === 'line') {
             chart = <Line data={data} options={options()}/>
         }
         if (props.chartType === 'horizontalBar') {

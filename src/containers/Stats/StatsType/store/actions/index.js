@@ -1,0 +1,1 @@
+export { addColors } from './statsType';

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import { Line, Bar, HorizontalBar } from 'react-chartjs-2';
 import 'chartjs-plugin-style';
@@ -7,15 +8,8 @@ import thousandsSeparator from '../../utils/functions/thousandsSeparator';
 
 const chart = (props) => {
 
-    const getRandomColor = () => {
-        const r = Math.floor(Math.random() * 256);
-        const g = Math.floor(Math.random() * 256);
-        const b = Math.floor(Math.random() * 256);
-        return `rgba(${r},${g},${b}, `;
-    };
-    const color = getRandomColor();
     const dataset = props.movies.map(item => {
-        console.log(item, props.type, item[`${props.type}`]);
+        const color = props.statsColors.find(itemStats => itemStats.title === item.Title).color;
         return {
             label: item.Title,
             backgroundColor: `${color} 1)`,
@@ -202,4 +196,10 @@ const chart = (props) => {
 
 };
 
-export default chart;
+const mapStateToProps = state => {
+    return {
+        statsColors: state.stats.colors
+    }
+};
+
+export default connect(mapStateToProps)(chart);

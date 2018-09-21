@@ -11,11 +11,13 @@ import registerServiceWorker from './registerServiceWorker';
 import moviesReducer from './containers/Home/store/reducers/movies';
 import detailsReducer from './containers/Details/store/reducers/details';
 import episodesReducer from './containers/Episodes/store/reducers/episodes';
+import statsReducer from './containers/Stats/StatsType/store/reducers/statsType';
 
 const rootReducers = combineReducers({
     movies: moviesReducer,
     details: detailsReducer,
-    episodes: episodesReducer
+    episodes: episodesReducer,
+    stats: statsReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
